@@ -1,0 +1,188 @@
+ASTUCE WordPress
+
+1. Ouvrir Wp-config
+2.Aller à la ligne 35 (define('DB_CHARSET', 'utf8mb4');)
+3. Enlever le mb4 donc = define('DB_CHARSET', 'utf8');
+
+Ceci permet d'éviter les problemes de changement de serveurs en utf 8 (accent qui disparaissent)
+
+1. Ouvrir WP configuration
+2. Ligne 20 rajouter : $host = php_uname('n');
+En fonction de l'hôte, je définis un environnement
+
+3. Taper ensuite
+
+if (strstr($host, '244.local'))
+{
+	define('ENVIRONMENT', 'development');
+}
+else
+{
+	define('ENVIRONMENT'; "production");
+}
+
+
+Il demande si nous sommes sur le bon serveur, il faut définir si nous sommes en développmenet ou en prod
+
+4. ON teste
+//----> On teste
+if(ENVIRONMENT === "development")
+{
+	define('DB_NAME', 'hellowordpress');
+	define('DB_USER', 'root');
+	define('DB_PASSWORD', 'root');
+	define('DB_HOST', 'localhost');
+}
+
+else {
+	define('DB_NAME', 'xxx');
+	define('DB_USER', 'xxx');
+	define('DB_PASSWORD', 'xxx');
+	define('DB_HOST', 'xxx');
+}
+
+
+Mettre ensuite le var dump
+var_dump($host);
+
+Grâce à cette commande, ceci nous permet de changer les mots depasses de la base de données suivant l'environnement où on travaille.
+
+
+
+
+
+
+FONCTIONNEMENT FOUNDATION PRESS ----------------------
+
+Composant 1
+---------
+GLOBAL /
+-------
+MODULE 2
+TEMPLATE 3 /
+
+BOUTON = COMPOSANT
+
+BOUTON + BOUTON + BOUTON dans DIV = Modules
+
+MODULE + MODULES + MODULES dans container = Temaplte
+
+
+INSTALLER WORDPRESS VERSION Foundation PRESS-------------------------
+
+1- Faire une installation wordpress
+2 Télécharger foudnation press et l'installer dans le dossier thème
+3- Faire une installation  NPM & node(Bower et node)
+4- il fautcheck dans le package.json dans les scripts pour les bonnes commandes
+5 - Lancer un npm run build dans le dossier du theme (Hellowordpress dans le cas si présent)
+    et le theme foundation pressmarche
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSTALLER UNE LIBRARIE JQUERY CYCLE-------------------
+
+Trouver le lien git hub (On va prendre jquery-cycle2)
+faire un bower install jquery-cycle2
+Faire un bower install --save jquery-cycle (si on doit travailler à la maison , ce qui sera le cas)
+(Ca permet de mettre à jour les dependance dans bower.json,ce qui fait que ce module JS sera intégré à notre projet.
+Il faudra quand même refaire un bower install, pour mettre à jour le bower component chez nous )
+
+C'est mtn installé
+
+
+IL faut ensuite aller dans config.yml pour gérer les bibliothèque JS
+Il faut intégrer la nouvelle librairie JS à la façon des anciennes
+bower_component/jquery-cycle2/build/jquery-cycle2.js
+
+
+
+PROBLEME BASH BOWER COMMAND NOT FOUND
+
+1 - npm install -g bower (avec sudo sur mac)
+2 - bower install jquery-cycle2
+
+et ça marche hihihu
+
+
+CLOOOONE ====================
+
+ Clone > Il n'y pas de bower-component, ni de nodes-modules pour ce projet sur mon
+pc vu que mon commit ne comprend pas les fichierssources type bower etc...
+
+1 - MAC MJM=Créer un working copy
+      NPM = Install
+      Bower install =Si pas de bower component
+On fait ses petits commits + publis
+
+
+2 Les dossiers sont envoyé sur GIT
+ sauf ceux sur .GITIGNORE. (bower-compoents, dist etc...)
+
+
+ 3 Vous rentez à la zoim
+    - On fait un git Clone
+    (on récupere les fichiers sans Bower component et sans nodes, vu que gitignore)
+     VU QUE BW ET Nodes ne sont pas dans le clone. on fait
+     un npm install puis un bower install sur son poste
+
+
+Dans le terminal==========================================
+1 - Taper NPM
+2- Taper la commande sudo foundation (sur la doc)
+3- Selectionner le dossier parent avec les commandes ci dessous
+  - PWD = Voir la dossier dans lequel je suis
+  - cd nomdudossier= permet de rentrer dans le dossier
+  - cd .. pour revenir en arrière
+  - LS - L = LS liste des fichiers - L donne des informations en plus
+  mkdir - faire un nouveau dossiers
+  rmdir - supprimer test
+
+
+4- Taper foundation new Le site est installé dans le dossier acces2
+5- (SI ZURB)  npm run start
+    Permet de lancer le site en prod (Tout devient minifié & se met à jour))
+
+  Si la façon zurb ne marche pas. Il est possible qu'il manque le bower. component
+
+  Taper bower -v (Voir si il trouve le bower)
+  taper npm install bower
+5- Faire un CD pour selectionner le dossier créer
+5- Lancer ensuite le compilateur sass avec "foundation watch"
+
+
+
+CLONER --- UN DOSSIER
+
+
+Clonier un dossier > Node modules > Oui
+                                  > Non npm install > Bower Gump > Oui
+                                                                 > Non > bower -v > Oui bower install
+                                                                                  > npm install -g bower
+
+
+WINDOWS ---
+
+1. INSTALLER GIT for windows
+2. Installer GITHUB + connexion
+3, Installer NODE JS version LTS
+4. Installation fondatio navec la doc (comme en haut)
+5 Récuparation des fichiers sur le depôt
+
+GFX Null template wordpress gratuit
+
+- Plugin wordpress utilisé par Valenjo
+  - Crelly sliderr
+  - Google Analytics Dashboard for Wp
+  - Polygon
+  - Updraft
+  - WP OPTIMIZE
