@@ -1,3 +1,58 @@
+------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------
+---------------LE FICHIER JS COMMENT CA MARCHE
+
+jQuery(document).foundation();
+// Permet de charger tout ce qui est nécessaire aux fonctionnement de foundation
+
+POUR LANCER LE DOCUMENTER : ON TAPE CA
+ET LE RESTE A L'interieur
+jQuery(document).ready(function() {
+  new WOW().init();
+
+});
+
+Ce qui donne ça:
+
+jQuery(document).foundation();
+
+jQuery(document).ready(function() {
+  new WOW().init();
+
+});
+
+------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------
+------------------------  TRANSFERER LES BIBLIOTHEQUE JS ppour un autre pageYOffset
+
+Il faut d'abord sauvegarder le fait qu'il y'a cette libraire dans notre dossier
+
+bower install --save wow.js
+
+Grace à ça la dépendence est créer dans le fichier bower.json
+
+"dependencies": {
+	"foundation-sites": "~6.3.0",
+	"motion-ui": "~1.2.2",
+	"wow": "wowjs#^1.1.2"
+},
+
+Dans le git.ignore, le bower component de wow js sera ignoré. (Car sinon ca prend tropde place)
+
+Quand nous serons chez nous, nous clonons les les fichiers. On se retrouve donc avec tout sauf les libraires (Bower component)
+
+Comment loader les librairies absente
+
+Vu que nous avons save la dépendance dans le bower.json, il suffit de faire un
+bower install
+
+Il viendra chercher les dépendances et tout rentrera dans l'ordre.
+------------------------ ------------------------ ------------------------ ------------------------ ------------------------ ------------------------
+
+Différences entre NPM BUILD @ Foundation WATCH
+
+- Foundation watch (pour pré-prod, se met à jour tout le temps quand il y'a une modification, fichier non compressée)
+- npm run build (Compresseur en prod, modifie le css qu'une seul fois, fichier compressé.)
+
+
 ASTUCE WordPress
 
 1. Ouvrir Wp-config
@@ -88,8 +143,19 @@ INSTALLER WORDPRESS VERSION Foundation PRESS-------------------------
 
 
 
+INSTALLER UNE LIBRAIRIE WOWJS 2 LE RETOUR version zurb --------------
+Choisir son script
+Utiliser la commande bower install wowjs
+Allez dans le fichier gulpfile.js (POUR LE ZURB) Config.yml(si non zurb)
+Rajouter ligne // Librairies externes
+assets/components/wow/dist/wow.js,
+Importer le css dans u nnnouea ifichier css puis importerce dernier
 
-INSTALLER UNE LIBRARIE JQUERY CYCLE-------------------
+Taper --save pou ravoir son BOWER sauvegarder avec les plugin js.
+
+
+
+INSTALLER UNE LIBRARIE JQUERY CYCLE- v------------------
 
 Trouver le lien git hub (On va prendre jquery-cycle2)
 faire un bower install jquery-cycle2
